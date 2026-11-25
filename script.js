@@ -81,6 +81,7 @@
       title: 'SkinBB Platform & AI Recommendation Ecosystem',
       category: '/ Next.js Marketplace & Admin Panels',
       image: 'assets/art-skinbb.jpg',
+      imageAvif: 'assets/art-skinbb.avif',
       alt: 'SkinBB Editorial Concept - Audited Skincare Marketplace in Next.js',
       url: 'https://skinbb.com',
       delivery: {
@@ -94,6 +95,7 @@
       title: 'Tuitions Near Me (TNM) - Private Tutor Marketplace',
       category: '/ Next.js App Router · Live',
       image: 'assets/art-tnm.jpg',
+      imageAvif: 'assets/art-tnm.avif',
       alt: 'Tuitions Near Me Editorial Concept - Tutor Discovery in Next.js',
       url: 'http://tuitionsnearme.in/',
       tags: ['Next.js (App Router)', 'React', 'TypeScript', 'Tailwind CSS', 'PWA', 'JSON-LD SEO']
@@ -102,6 +104,7 @@
       title: 'CodeBerry Technologies - Software Company & IT Agency',
       category: '/ Next.js · Software & IT Agency',
       image: 'assets/art-codeberry.jpg',
+      imageAvif: 'assets/art-codeberry.avif',
       alt: 'CodeBerry Technologies Editorial Concept - Software Company and IT Agency',
       url: 'https://codeberry.in/',
       delivery: {
@@ -115,6 +118,7 @@
       title: 'MemryX - Edge AI Accelerator Corporate Website',
       category: '/ WordPress Custom Theme',
       image: 'assets/art-memryx.jpg',
+      imageAvif: 'assets/art-memryx.avif',
       alt: 'MemryX Editorial Concept - Edge AI Custom WordPress Build',
       url: 'https://memryx.ai/',
       delivery: {
@@ -128,6 +132,7 @@
       title: 'Lektus - Global Engineering Consultancy Website',
       category: '/ Webflow & Scroll Motion',
       image: 'assets/art-lektus.jpg',
+      imageAvif: 'assets/art-lektus.avif',
       alt: 'Lektus Editorial Concept - Engineering Consultancy in Webflow',
       url: 'https://www.lektus.com/',
       delivery: {
@@ -141,6 +146,7 @@
       title: 'Nandi Automobiles - Auto Parts & Workshop Website',
       category: '/ WordPress & WooCommerce · Live',
       image: 'assets/art-nandi.jpg',
+      imageAvif: 'assets/art-nandi.avif',
       alt: 'Nandi Automobiles - Automotive Parts Specialist in Bankura, West Bengal',
       url: 'https://nandiautomobiles.in/',
       tags: ['WordPress', 'Custom Theme', 'WooCommerce', 'PHP', 'CSS3', 'JavaScript', 'Yoast SEO']
@@ -152,6 +158,7 @@
   const modalCloseBtn = document.getElementById('modal-close');
   const modalTitle = document.getElementById('modal-project-title');
   const modalCat = document.getElementById('modal-project-cat');
+  const modalAvif = document.getElementById('modal-project-avif');
   const modalImg = document.getElementById('modal-project-img');
   const modalAttribution = document.getElementById('modal-project-attribution');
   const modalNote = document.getElementById('modal-project-note');
@@ -167,6 +174,7 @@
 
         modalTitle.textContent = data.title;
         modalCat.textContent = data.category;
+        if (modalAvif && data.imageAvif) modalAvif.srcset = data.imageAvif;
         modalImg.src = data.image;
         modalImg.alt = data.alt;
         modalLink.href = data.url;

@@ -64,6 +64,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+picture {
+  display: contents;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -2138,6 +2142,11 @@ button {
   position: relative;
   width: 100%;
   background-color: #160a06;
+  background-image: url("assets/cta-backdrop.jpg");
+  background-image: image-set(
+    url("assets/cta-backdrop.avif") type("image/avif"),
+    url("assets/cta-backdrop.jpg") type("image/jpeg")
+  );
   background-size: cover;
   background-position: center;
   padding-block: clamp(4.5rem, 8vw, 6.5rem);
