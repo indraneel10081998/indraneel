@@ -83,7 +83,7 @@
       image: 'assets/art-tnm.jpg',
       imageAvif: 'assets/art-tnm.avif',
       alt: 'Tuitions Near Me - Live Private Home and Online Tutor Marketplace in Next.js',
-      url: 'https://tuitionsnearme.in/',
+      url: 'https://tuitionsnearme.in/home',
       tags: ['Next.js (App Router)', 'React', 'TypeScript', 'Tailwind CSS', 'PWA', 'JSON-LD SEO']
     }
   };
