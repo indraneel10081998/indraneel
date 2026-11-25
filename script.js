@@ -74,82 +74,17 @@
   }
 
   /* ========================================================================
-     3. PROJECT DETAILS MODAL (<dialog>)
+     3. PRODUCT DETAILS MODAL (<dialog>)
      ======================================================================== */
   const PROJECTS = {
-    skinbb: {
-      title: 'SkinBB Platform & AI Recommendation Ecosystem',
-      category: '/ Next.js Marketplace & Admin Panels',
-      image: 'assets/art-skinbb.jpg',
-      imageAvif: 'assets/art-skinbb.avif',
-      alt: 'SkinBB Editorial Concept - Audited Skincare Marketplace in Next.js',
-      url: 'https://skinbb.com',
-      delivery: {
-        prefix: 'Built and delivered under ',
-        linkLabel: 'CodeBerry Technologies (codeberry.in)',
-        href: 'https://codeberry.in/'
-      },
-      tags: ['Next.js', 'React', 'Tailwind CSS', 'Redux', 'Zustand', 'Formik', 'Yup', 'REST APIs', 'OAuth 2.0', 'React Native']
-    },
     tnm: {
       title: 'Tuitions Near Me (TNM) - Private Tutor Marketplace',
       category: '/ Next.js App Router · Live',
       image: 'assets/art-tnm.jpg',
       imageAvif: 'assets/art-tnm.avif',
-      alt: 'Tuitions Near Me Editorial Concept - Tutor Discovery in Next.js',
-      url: 'http://tuitionsnearme.in/',
+      alt: 'Tuitions Near Me - Live Private Home and Online Tutor Marketplace in Next.js',
+      url: 'https://tuitionsnearme.in/',
       tags: ['Next.js (App Router)', 'React', 'TypeScript', 'Tailwind CSS', 'PWA', 'JSON-LD SEO']
-    },
-    codeberry: {
-      title: 'CodeBerry Technologies - Software Company & IT Agency',
-      category: '/ Next.js · Software & IT Agency',
-      image: 'assets/art-codeberry.jpg',
-      imageAvif: 'assets/art-codeberry.avif',
-      alt: 'CodeBerry Technologies Editorial Concept - Software Company and IT Agency',
-      url: 'https://codeberry.in/',
-      delivery: {
-        prefix: 'Built under ',
-        linkLabel: 'CodeBerry Technologies (codeberry.in)',
-        href: 'https://codeberry.in/'
-      },
-      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'SEO']
-    },
-    memryx: {
-      title: 'MemryX - Edge AI Accelerator Corporate Website',
-      category: '/ WordPress Custom Theme',
-      image: 'assets/art-memryx.jpg',
-      imageAvif: 'assets/art-memryx.avif',
-      alt: 'MemryX Editorial Concept - Edge AI Custom WordPress Build',
-      url: 'https://memryx.ai/',
-      delivery: {
-        prefix: 'Built and delivered under ',
-        linkLabel: 'CodeBerry Technologies (codeberry.in)',
-        href: 'https://codeberry.in/'
-      },
-      tags: ['WordPress', 'Custom Theme', 'Elementor', 'HTML5', 'CSS3', 'JavaScript', 'HTML5 Canvas']
-    },
-    lektus: {
-      title: 'Lektus - Global Engineering Consultancy Website',
-      category: '/ Webflow & Scroll Motion',
-      image: 'assets/art-lektus.jpg',
-      imageAvif: 'assets/art-lektus.avif',
-      alt: 'Lektus Editorial Concept - Engineering Consultancy in Webflow',
-      url: 'https://www.lektus.com/',
-      delivery: {
-        prefix: 'Built and delivered under ',
-        linkLabel: 'CodeBerry Technologies (codeberry.in)',
-        href: 'https://codeberry.in/'
-      },
-      tags: ['Webflow', 'Webflow CMS', 'Custom CSS/JS', 'Lenis', 'Swiper.js', 'Lottie']
-    },
-    nandi: {
-      title: 'Nandi Automobiles - Auto Parts & Workshop Website',
-      category: '/ WordPress & WooCommerce · Live',
-      image: 'assets/art-nandi.jpg',
-      imageAvif: 'assets/art-nandi.avif',
-      alt: 'Nandi Automobiles - Automotive Parts Specialist in Bankura, West Bengal',
-      url: 'https://nandiautomobiles.in/',
-      tags: ['WordPress', 'Custom Theme', 'WooCommerce', 'PHP', 'CSS3', 'JavaScript', 'Yoast SEO']
     }
   };
 
@@ -564,15 +499,15 @@
             }
           });
 
-          gsap.utils.toArray('.project-card').forEach((card) => {
+          gsap.utils.toArray('.project-card:not(.product-card)').forEach((card) => {
             const thumb = card.querySelector('.project-card__thumb');
             if (!thumb) return;
             gsap.fromTo(
               thumb,
-              { yPercent: -4, scale: 1.08 },
+              { yPercent: -1.5, scale: 1.03 },
               {
-                yPercent: 4,
-                scale: 1.08,
+                yPercent: 1.5,
+                scale: 1.03,
                 ease: 'none',
                 scrollTrigger: {
                   trigger: card,
@@ -586,12 +521,12 @@
         }
 
         // C. Section headers (fade + lift) & C2. All section headings baseline word-reveal
-        gsap.utils.toArray('.about-top, .services-header, .projects-header, #process .container > .reveal-on-scroll, #career .container > .reveal-on-scroll, .faq-sticky').forEach((headerEl) => {
+        gsap.utils.toArray('.about-top, .services-header, .products-header, #process .container > .reveal-on-scroll, #career .container > .reveal-on-scroll, .faq-sticky').forEach((headerEl) => {
           revealOnEnter(headerEl, { y: isDesktop ? 34 : 22, duration: 0.75 });
         });
 
         // C2. Word-reveal on all section display headings (reversible on reverse scroll)
-        gsap.utils.toArray('#about-heading, #services-heading, #projects-heading, #process-heading, #career-heading, #faq-heading, #contact-heading').forEach((headingEl) => {
+        gsap.utils.toArray('#about-heading, #services-heading, #products-heading, #process-heading, #career-heading, #faq-heading, #contact-heading').forEach((headingEl) => {
           const wordInners = splitHeadingIntoWords(headingEl);
           if (!wordInners.length) return;
 
@@ -729,10 +664,10 @@
           }
         });
 
-        // G. Selected Projects grid & CTA
+        // G. My Product showcase & CTA
         if (isDesktop) {
           const cards = gsap.utils.toArray('.project-card');
-          cards.forEach((card, i) => {
+          cards.forEach((card) => {
             revealOnEnter(card, { y: 38, duration: 0.74, stagger: 0, start: 'top 88%' });
           });
         } else {
@@ -741,7 +676,7 @@
           });
         }
 
-        revealOnEnter('.projects-actions', { y: 22, duration: 0.65 });
+        revealOnEnter('.products-actions', { y: 22, duration: 0.65 });
 
         // H. Engineering Process cards & Grouped Company Experience Ledger
         revealOnEnter('.process-card', {
